@@ -1,21 +1,22 @@
 // Define constants
 const HOLES = 9;
 const SCORE_TO_WIN = 10;
-const MOLE_APPEAR_TIME = 1000;
-const GAME_DURATION = 10000;
-
 // Define variables
 let score = 0;
 let gameStarted = false;
-
+let level = 1;
+let Fspeed = 1;
+let MOLE_APPEAR_TIME = 1000 * Fspeed;
+let GAME_DURATION = 10 * MOLE_APPEAR_TIME;
 // Select DOM elements
 const holes = document.querySelectorAll(".hole");
 const scoreBoard = document.querySelector(".score");
 const startButton = document.querySelector(".start-button");
+const mode = document.querySelector(".mode")
 
 // Define functions
 function startGame() {
-    console.log("startgame");
+   // console.log("startgame");
   gameStarted = true;
   score = 0;
   scoreBoard.textContent = score;
@@ -55,7 +56,28 @@ function whackMole(event) {
     alert("Congratulations, you won!");
   }
 }
-
+function updatemod(){
+  switch(level) {
+    case 1:
+      level++;
+      mode.textContent = "Mittel";
+      mode.style.backgroundColor = "yellow";
+      Fspeed = 0.75;
+      break;
+    case 2:
+      level++;
+      mode.textContent = "Schwer";
+      mode.style.backgroundColor = "red";
+      Fspeed = 0.50;
+      break;
+    default:
+      level = 1; 
+      mode.textContent = "Leicht";
+      mode.style.backgroundColor = "limegreen";
+      Fspeed = 1;
+  }
+}
 // Add event listeners
 holes.forEach(hole => hole.addEventListener("click", whackMole));
 startButton.addEventListener("click", startGame);
+mode.addEventListener("click", updatemod )

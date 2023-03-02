@@ -1,3 +1,30 @@
+body{
+  background-color: rgb(9, 128, 9);
+}
+.start-button{
+  border-radius: 10px;
+  background-color: gray;
+  font-size: 30px;
+  width: 200px;
+  height: 100px;
+}
+.score{
+  border-radius: 10px;
+  background-color: gray;
+  font-size: 30px;
+  width: 200px;
+  height: 100px;
+}
+.mode{
+  border-radius: 10px;
+  background-color: limegreen;
+  font-size: 30px;
+  width: 200px;
+  height: 100px;
+}
+.game-contols{
+  position: absolute;
+}
 #board {
     display: flex;
     flex-wrap: wrap;
@@ -6,19 +33,26 @@
     width: 600px;
     height: 600px;
     margin: 0 auto;
-    border: 1px solid black;
+    border-radius: 22px;
   }
   
   .hole {
     width: 150px;
     height: 150px;
     margin: 10px;
-    background-color: brown;
+    background-color: rgb(84, 70, 7);
     border-radius: 50%;
     cursor: pointer;
     transition: background-color 0.2s;
+    border: 2px solid black;
   }
   
   .mole{
-      background-color: blueviolet;
+  background-color: rgb(218, 148, 44);
   }
+  .bomb{
+  background-color: rgb(64, 64, 64);
+  }
+.gold{
+  background-color: gold;
+}
